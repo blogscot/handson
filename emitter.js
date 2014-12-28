@@ -25,8 +25,3 @@ var callback = function() {
 };
 
 myTicker.addListener('tick', callback());
-
-
-
-
-
