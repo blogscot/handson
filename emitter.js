@@ -17,7 +17,14 @@ var myListener = new Ticker();
 
 myTicker.sendEvent('tick');
 
-myTicker.addListener('tick', function(){console.log();});
+var callback = function() {
+	var count = 0;
+	return function() {
+		console.log(count++);
+	}
+};
+
+myTicker.addListener('tick', callback());
 
 
 
