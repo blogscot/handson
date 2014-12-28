@@ -6,6 +6,8 @@
   "dependencies": {
     "events": "^1.0.2",
     "fs": "0.0.2",
+    "http": "0.0.0",
+    "path": "^0.4.9",
     "util": "^0.10.3"
   },
   "devDependencies": {},
