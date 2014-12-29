@@ -1,5 +1,6 @@
 var fs = require('fs');
 fs.open('package.json', 'r', function(err, fd) {
+	'use strict';
 	if (err) { throw err; }
 
 	var readBuffer = new Buffer(10),
@@ -25,8 +26,9 @@ fs.open('package.json', 'r', function(err, fd) {
 				console.log(readBuffer);
 			}
 		});
-	bufferOffset = 5,
-	bufferLength = 5,
+
+	bufferOffset = 5;
+	bufferLength = 5;
 	filePosition = 10; 
 
 		fs.read(fd, readBuffer, bufferOffset, bufferLength, filePosition,

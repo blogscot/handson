@@ -8,6 +8,7 @@ var options = {
 };
 
 var req = http.request(options, function(res) {
+	'use strict';
 	console.log('Status: '+res.StatusCode);
 	console.log('Headers: '+JSON.stringify(res.headers));
 	res.setEncoding('utf8');

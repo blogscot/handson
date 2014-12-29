@@ -5,6 +5,8 @@ var http = require('http'),
 var server = http.createServer();
 
 server.on('request', function(req, res) {
+	'use strict';
+	
 	var file = path.normalize(__dirname+req.url);
 	fs.exists(file, function(found){
 		if(found) {
