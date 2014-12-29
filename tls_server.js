@@ -8,11 +8,13 @@ var tls = require('tls'),
   
   openssl genrsa -out server1.key  1024
   openssl req -new -key server1.key -out server1.csr
-  openssl x509 -req -days 999 -in server1.csr -CA ca.pem  -CAkey ca.key -set_serial 01 -out server1.pem
+  openssl x509 -req -days 999 -in server1.csr -CA ca.pem  -CAkey ca.key -set_serial 01 \
+  -out server1.pem
   
   openssl genrsa -out client1.key 1024
-  openssl req -new -key client1.key  -out client1.csr
-  openssl  x509  -req -days 999 -in client1.csr -CA ca.pem -CAkey ca.key -set_serial 01     -out client1.pem
+  openssl req -new -key client1.key -out client1.csr
+  openssl  x509 -req -days 999 -in client1.csr -CA ca.pem -CAkey ca.key -set_serial 01 \
+  -out client1.pem
 
  Set => Common Name (e.g. server FQDN or YOUR name) []:localhost
 */
@@ -31,7 +33,7 @@ var server = tls.createServer(options, function(cleartextStream) {
  
   console.log('server connected',
               cleartextStream.authorized ? 'authorized' : 'unauthorized');
-  
+
   cleartextStream.write("welcome!\n");
   cleartextStream.setEncoding('utf8');
   cleartextStream.pipe(cleartextStream);

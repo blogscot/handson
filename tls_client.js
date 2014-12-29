@@ -9,15 +9,17 @@ var port = 3000,
     	ca :   fs.readFileSync('../openssl/ca.pem')
     };
 
-var cleartextStream  = tls.connect(port, host, options, function() {
+var cleartextStream = tls.connect(port, host, options, function() {
 	'use strict';
 	console.log('connected');
 	console.log('authorised: '+cleartextStream.authorized);
 });
 cleartextStream.setEncoding('utf8');
 cleartextStream.on('data', function(data) {
+	'use strict';
   console.log(data);
 });
 cleartextStream.on('end', function() {
-  server.close();
+	'use strict';
+  cleartextStream.close();
 });
