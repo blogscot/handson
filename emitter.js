@@ -13,7 +13,7 @@ Ticker.prototype.sendEvent = function(event) {
 	setInterval(function() { that.emit(event); }, 1000);
 };
 
-var myTicker = new Ticker();
+var myTicker = Object.create(Ticker.prototype);
 
 myTicker.sendEvent('tick');
 
